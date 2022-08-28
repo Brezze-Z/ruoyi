@@ -12,7 +12,7 @@ export function listMaterial(query) {
 // 查询【请填写功能名称】详细
 export function getMaterial(materialId) {
   return request({
-    url: '/system/material/' + materialId,
+    url: '/reserch/basic/Reserchmaterials/' + materialId,
     method: 'get'
   })
 }
@@ -20,7 +20,7 @@ export function getMaterial(materialId) {
 // 新增【请填写功能名称】
 export function addMaterial(data) {
   return request({
-    url: '/system/material',
+    url: '/reserch/basic/Reserchmaterials/save',
     method: 'post',
     data: data
   })

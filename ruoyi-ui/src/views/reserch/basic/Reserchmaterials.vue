@@ -1,70 +1,46 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="材料名称" prop="MaterialName">
+      <el-form-item label="材料名称" prop="materialName">
         <el-input
-          v-model="queryParams.MaterialName"
+          v-model="queryParams.materialName"
           placeholder="请输入材料名称"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="型号名称" prop="MaterialModel">
+      <el-form-item label="型号名称" prop="materialModel">
         <el-input
-          v-model="queryParams.MaterialModel"
+          v-model="queryParams.materialModel"
           placeholder="请输入型号名称"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="创建时间" prop="MaterialCreatetime">
+      <el-form-item label="创建时间" prop="materialCreatetime">
         <el-date-picker clearable
-          v-model="queryParams.MaterialCreatetime"
+          v-model="queryParams.materialCreatetime"
           type="date"
           value-format="yyyy-MM-dd"
           placeholder="请选择创建时间">
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="修改时间" prop="MaterialModifiytime">
-        <el-date-picker clearable
-          v-model="queryParams.MaterialModifiytime"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="请选择修改时间">
-        </el-date-picker>
-      </el-form-item>
-      <el-form-item label="材料信息备注" prop="MaterialComment">
+      <el-form-item label="备注" prop="materialComment">
         <el-input
-          v-model="queryParams.MaterialComment"
+          v-model="queryParams.materialComment"
           placeholder="请输入材料信息备注"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="创建人姓名" prop="MaterialCreatername">
+      <el-form-item label="创建人" prop="materialCreatername">
         <el-input
-          v-model="queryParams.MaterialCreatername"
+          v-model="queryParams.materialCreatername"
           placeholder="请输入创建人姓名"
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
-      <el-form-item label="备注字段" prop="MaterialBackupfield1">
-        <el-input
-          v-model="queryParams.MaterialBackupfield1"
-          placeholder="请输入备注字段"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="备注字段" prop="MaterialBackupfield2">
-        <el-input
-          v-model="queryParams.MaterialBackupfield2"
-          placeholder="请输入备注字段"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
+      </el-form-item>    
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -125,12 +101,12 @@
       <el-table-column label="型号名称" align="center" prop="materialModel" />
       <el-table-column label="创建时间" align="center" prop="materialCreatetime" width="180">
         <template slot-scope="scope">
-          <span>{{ parseTime(scope.row.MaterialCreatetime, '{y}-{m}-{d}') }}</span>
+          <span>{{ parseTime(scope.row.materialCreatetime, '{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
       <el-table-column label="修改时间" align="center" prop="materialModifiytime" width="180">
         <template slot-scope="scope">
-          <span>{{ parseTime(scope.row.MaterialModifiytime, '{y}-{m}-{d}') }}</span>
+          <span>{{ parseTime(scope.row.materialModifiytime, '{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
       <el-table-column label="材料信息备注" align="center" prop="materialComment" />
@@ -168,39 +144,17 @@
     <!-- 添加或修改材料对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="材料名称" prop="MaterialName">
-          <el-input v-model="form.MaterialName" placeholder="请输入材料名称" />
+        <el-form-item label="材料名称" prop="materialName">
+          <el-input v-model="form.materialName" placeholder="请输入材料名称" />
         </el-form-item>
-        <el-form-item label="型号名称" prop="MaterialModel">
-          <el-input v-model="form.MaterialModel" placeholder="请输入型号名称" />
+        <el-form-item label="型号名称" prop="materialModel">
+          <el-input v-model="form.materialModel" placeholder="请输入型号名称" />
         </el-form-item>
-        <el-form-item label="创建时间" prop="MaterialCreatetime">
-          <el-date-picker clearable
-            v-model="form.MaterialCreatetime"
-            type="date"
-            value-format="yyyy-MM-dd"
-            placeholder="请选择创建时间">
-          </el-date-picker>
+        <el-form-item label="材料类别" prop="materialType">
+          <el-input v-model="form.materialType" placeholder="请输入材料类别" />
         </el-form-item>
-        <el-form-item label="修改时间" prop="MaterialModifiytime">
-          <el-date-picker clearable
-            v-model="form.MaterialModifiytime"
-            type="date"
-            value-format="yyyy-MM-dd"
-            placeholder="请选择修改时间">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="材料信息备注" prop="MaterialComment">
-          <el-input v-model="form.MaterialComment" placeholder="请输入材料信息备注" />
-        </el-form-item>
-        <el-form-item label="创建人姓名" prop="MaterialCreatername">
-          <el-input v-model="form.MaterialCreatername" placeholder="请输入创建人姓名" />
-        </el-form-item>
-        <el-form-item label="备注字段" prop="MaterialBackupfield1">
-          <el-input v-model="form.MaterialBackupfield1" placeholder="请输入备注字段" />
-        </el-form-item>
-        <el-form-item label="备注字段" prop="MaterialBackupfield2">
-          <el-input v-model="form.MaterialBackupfield2" placeholder="请输入备注字段" />
+        <el-form-item label="材料备注" prop="materialComment">
+          <el-input v-model="form.materialComment" placeholder="请输入材料信息备注" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -303,7 +257,7 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.MaterialId)
+      this.ids = selection.map(item => item.materialId)
       this.single = selection.length!==1
       this.multiple = !selection.length
     },
@@ -316,7 +270,7 @@ export default {
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const MaterialId = row.MaterialId || this.ids
+      const MaterialId = row.materialId || this.ids
       getMaterial(MaterialId).then(response => {
         this.form = response.data;
         this.open = true;
@@ -327,7 +281,7 @@ export default {
     submitForm() {
       this.$refs["form"].validate(valid => {
         if (valid) {
-          if (this.form.MaterialId != null) {
+          if (this.form.materialId != null) {
             updateMaterial(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;

@@ -11,153 +11,166 @@ public class ResearchMaterial{
     /**
      * 科研系统材料表主键ID
      */
-    private Long MaterialId;
+    private Long materialId;
 
     /**
      * 材料名称
      */
-    private String MaterialName;
+    private String materialName;
 
     /**
      * 材料类别：金属材料；高分子材料；复合材料；其他
-
-
-
-
      */
-    private String MaterialType;
+    private String materialType;
 
     /**
      * 型号名称
      */
-    private String MaterialModel;
+    private String materialModel;
 
     /**
      * 创建时间
      */
-    private Date MaterialCreatetime;
+    private Date materialCreatetime;
 
     /**
      * 修改时间
      */
-    private Date MaterialModifiytime;
+    private Date materialModifiytime;
 
     /**
      * 材料信息备注
      */
-    private String MaterialComment;
+    private String materialComment;
 
     /**
      * 创建人姓名
      */
-    private String MaterialCreatername;
+    private String materialCreatername;
 
     /**
      * 备注字段
      */
-    private String MaterialBackupfield1;
+    private String materialBackupfield1;
 
     /**
      * 备注字段
      */
-    private String MaterialBackupfield2;
+    private String materialBackupfield2;
 
     private static final long serialVersionUID = 1L;
 
-    public ResearchMaterial(Long materialId, String materialName, String materialType, String materialModel, Date materialCreatetime, Date materialModifiytime, String materialComment, String materialCreatername, String materialBackupfield1, String materialBackupfield2) {
-        MaterialId = materialId;
-        MaterialName = materialName;
-        MaterialType = materialType;
-        MaterialModel = materialModel;
-        MaterialCreatetime = materialCreatetime;
-        MaterialModifiytime = materialModifiytime;
-        MaterialComment = materialComment;
-        MaterialCreatername = materialCreatername;
-        MaterialBackupfield1 = materialBackupfield1;
-        MaterialBackupfield2 = materialBackupfield2;
+    @Override
+    public String toString() {
+        return "ResearchMaterial{" +
+                "materialId=" + materialId +
+                ", materialName='" + materialName + '\'' +
+                ", materialType='" + materialType + '\'' +
+                ", materialModel='" + materialModel + '\'' +
+                ", materialCreatetime=" + materialCreatetime +
+                ", materialModifiytime=" + materialModifiytime +
+                ", materialComment='" + materialComment + '\'' +
+                ", materialCreatername='" + materialCreatername + '\'' +
+                ", materialBackupfield1='" + materialBackupfield1 + '\'' +
+                ", materialBackupfield2='" + materialBackupfield2 + '\'' +
+                '}';
     }
 
     public ResearchMaterial() {
     }
 
+
+    public ResearchMaterial(Long materialId, String materialName, String materialType, String materialModel, Date materialCreatetime, Date materialModifiytime, String materialComment, String materialCreatername, String materialBackupfield1, String materialBackupfield2) {
+        this.materialId = materialId;
+        this.materialName = materialName;
+        this.materialType = materialType;
+        this.materialModel = materialModel;
+        this.materialCreatetime = materialCreatetime;
+        this.materialModifiytime = materialModifiytime;
+        this.materialComment = materialComment;
+        this.materialCreatername = materialCreatername;
+        this.materialBackupfield1 = materialBackupfield1;
+        this.materialBackupfield2 = materialBackupfield2;
+    }
+
     public Long getMaterialId() {
-        return MaterialId;
+        return materialId;
     }
 
     public void setMaterialId(Long materialId) {
-        MaterialId = materialId;
+        this.materialId = materialId;
     }
 
     public String getMaterialName() {
-        return MaterialName;
+        return materialName;
     }
 
     public void setMaterialName(String materialName) {
-        MaterialName = materialName;
+        this.materialName = materialName;
     }
 
     public String getMaterialType() {
-        return MaterialType;
+        return materialType;
     }
 
     public void setMaterialType(String materialType) {
-        MaterialType = materialType;
+        this.materialType = materialType;
     }
 
     public String getMaterialModel() {
-        return MaterialModel;
+        return materialModel;
     }
 
     public void setMaterialModel(String materialModel) {
-        MaterialModel = materialModel;
+        this.materialModel = materialModel;
     }
 
     public Date getMaterialCreatetime() {
-        return MaterialCreatetime;
+        return materialCreatetime;
     }
 
     public void setMaterialCreatetime(Date materialCreatetime) {
-        MaterialCreatetime = materialCreatetime;
+        this.materialCreatetime = materialCreatetime;
     }
 
     public Date getMaterialModifiytime() {
-        return MaterialModifiytime;
+        return materialModifiytime;
     }
 
     public void setMaterialModifiytime(Date materialModifiytime) {
-        MaterialModifiytime = materialModifiytime;
+        this.materialModifiytime = materialModifiytime;
     }
 
     public String getMaterialComment() {
-        return MaterialComment;
+        return materialComment;
     }
 
     public void setMaterialComment(String materialComment) {
-        MaterialComment = materialComment;
+        this.materialComment = materialComment;
     }
 
     public String getMaterialCreatername() {
-        return MaterialCreatername;
+        return materialCreatername;
     }
 
     public void setMaterialCreatername(String materialCreatername) {
-        MaterialCreatername = materialCreatername;
+        this.materialCreatername = materialCreatername;
     }
 
     public String getMaterialBackupfield1() {
-        return MaterialBackupfield1;
+        return materialBackupfield1;
     }
 
     public void setMaterialBackupfield1(String materialBackupfield1) {
-        MaterialBackupfield1 = materialBackupfield1;
+        this.materialBackupfield1 = materialBackupfield1;
     }
 
     public String getMaterialBackupfield2() {
-        return MaterialBackupfield2;
+        return materialBackupfield2;
     }
 
     public void setMaterialBackupfield2(String materialBackupfield2) {
-        MaterialBackupfield2 = materialBackupfield2;
+        this.materialBackupfield2 = materialBackupfield2;
     }
 
     public static long getSerialVersionUID() {
