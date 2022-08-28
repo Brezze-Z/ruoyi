@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ruoyi.reserch.mapper.ResearchMaterialMapper">
+
+    <resultMap id="BaseResultMap" type="com.ruoyi.reserch.domain.ResearchMaterial">
+        <id property="MaterialId" column="f_material_id" jdbcType="BIGINT"/>
+        <result property="MaterialName" column="F_MATERIAL_NAME" jdbcType="VARCHAR"/>
+        <result property="MaterialType" column="F_MATERIAL_TYPE" jdbcType="VARCHAR"/>
+        <result property="MaterialModel" column="F_MATERIAL_MODEL" jdbcType="VARCHAR"/>
+        <result property="MaterialCreatetime" column="F_MATERIAL_CREATETIME" jdbcType="DATE"/>
+        <result property="MaterialModifiytime" column="F_MATERIAL_MODIFIYTIME" jdbcType="DATE"/>
+        <result property="MaterialComment" column="F_MATERIAL_COMMENT" jdbcType="VARCHAR"/>
+        <result property="MaterialCreatername" column="F_MATERIAL_CREATERNAME" jdbcType="VARCHAR"/>
+        <result property="MaterialBackupfield1" column="F_MATERIAL_BACKUPFIELD1" jdbcType="VARCHAR"/>
+        <result property="MaterialBackupfield2" column="F_MATERIAL_BACKUPFIELD1" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List_All">
+        f_material_id,F_MATERIAL_NAME,F_MATERIAL_TYPE,
+        F_MATERIAL_MODEL,F_MATERIAL_CREATETIME,F_MATERIAL_MODIFIYTIME,
+        F_MATERIAL_COMMENT,F_MATERIAL_CREATERNAME,F_MATERIAL_BACKUPFIELD1,
+        F_MATERIAL_BACKUPFIELD2
+    </sql>
+
+    <sql id="Base_Column_List">
+        f_material_id,F_MATERIAL_NAME,F_MATERIAL_TYPE,
+        F_MATERIAL_MODEL,F_MATERIAL_CREATETIME,F_MATERIAL_MODIFIYTIME,
+        F_MATERIAL_COMMENT,F_MATERIAL_CREATERNAME
+    </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+            SELECT <include refid="Base_Column_List"></include> From t_research_material
+    </select>
+
+
+</mapper>

@@ -56,6 +56,7 @@ public class SysUserController extends BaseController
 
     /**
      * 获取用户列表
+     * 封装好的分页方法
      */
     @PreAuthorize("@ss.hasPermi('system:user:list')")
     @GetMapping("/list")
